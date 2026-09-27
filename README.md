@@ -1,3 +1,6 @@
+# Estructura del TP
+
+```text
 TP-28Setiembre-UTN-Java/
 └── src/
     ├── gestioninventario/         <-- Paquete del TP 1
