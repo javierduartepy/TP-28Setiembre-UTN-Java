@@ -6,11 +6,9 @@ public class Producto {
     private double precio;
     private int stock;
 
-    // Constructor vacío necesario para instanciar con "new Producto()"
     public Producto() {
     }
 
-    // Constructor con parámetros (opcional)
     public Producto(String codigo, String nombre, double precio, int stock) {
         this.codigo = codigo;
         this.nombre = nombre;
