@@ -1,10 +1,34 @@
 package gestioninventario;
 
 public class Producto {
-    public String nombre;
-    public String codigo;
-    public double precio;
-    public int stock;
+    private String codigo;
+    private String nombre;
+    private double precio;
+    private int stock;
+
+    // Constructor vacío necesario para instanciar con "new Producto()"
+    public Producto() {
+    }
+
+    // Constructor con parámetros (opcional)
+    public Producto(String codigo, String nombre, double precio, int stock) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.stock = stock;
+    }
+
+    // Getters
+    public String getCodigo() { return codigo; }
+    public String getNombre() { return nombre; }
+    public double getPrecio() { return precio; }
+    public int getStock() { return stock; }
+
+    // Setters
+    public void setCodigo(String codigo) { this.codigo = codigo; }
+    public void setNombre(String nombre) { this.nombre = nombre; }
+    public void setPrecio(double precio) { this.precio = precio; }
+    public void setStock(int stock) { this.stock = stock; }
 
     public void venderUnidades(int cantidad) {
         if (cantidad <= 0) {
@@ -29,9 +53,13 @@ public class Producto {
         }
     }
 
-    public void actualizarPrecio(double precio) {
+    public void actualizarPrecio(double nuevoPrecio) {
+        if (nuevoPrecio < 0) {
+            System.out.println("Error: el precio no puede ser negativo.");
+            return;
+        }
         double precioAnterior = this.precio;
-        this.precio = precio;
+        this.precio = nuevoPrecio;
         System.out.println("Precio actualizado de "
                 + nombre + ": $" + precioAnterior + " -> $" + this.precio);
     }

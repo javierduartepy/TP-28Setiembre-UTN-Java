@@ -2,23 +2,10 @@ package gestioninventario;
 
 public class MainInventario {
     public static void main(String[] args) {
-        Producto productoUno = new Producto();
-        productoUno.codigo = "P-001";
-        productoUno.nombre = "Teclado mecánico";
-        productoUno.precio = 45000.0;
-        productoUno.stock = 12;
 
-        Producto productoDos = new Producto();
-        productoDos.codigo = "P-002";
-        productoDos.nombre = "Mouse óptico";
-        productoDos.precio = 15000.0;
-        productoDos.stock = 25;
-
-        Producto productoTres = new Producto();
-        productoTres.codigo = "P-003";
-        productoTres.nombre = "Monitor 24 pulgadas";
-        productoTres.precio = 180000.0;
-        productoTres.stock = 5;
+        Producto productoUno = new Producto("P-001", "Teclado mecánico", 45000.0, 12);
+        Producto productoDos = new Producto("P-002", "Mouse óptico", 15000.0, 25);
+        Producto productoTres = new Producto("P-003", "Monitor 24 pulgadas", 180000.0, 5);
 
         productoUno.mostrarFicha();
         productoUno.venderUnidades(3);
@@ -27,8 +14,8 @@ public class MainInventario {
         productoUno.actualizarPrecio(39900.0);
 
         Producto copia = productoUno;
-        copia.stock = 29;
-        System.out.println("Stock de productoUno tras modificar copia: " + productoUno.stock + " (mismo objeto en el Heap)");
+        copia.setStock(29); // Modificación controlada mediante setter
+        System.out.println("Stock de productoUno tras modificar copia: " + productoUno.getStock() + " (mismo objeto en el Heap)");
 
         System.out.println("\n--- DESAFÍO: APLICACIÓN DE DESCUENTOS ---");
         productoUno.aplicarDescuento(10.0);  // Caso válido
